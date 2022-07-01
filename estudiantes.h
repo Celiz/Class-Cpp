@@ -9,23 +9,25 @@ class cEstudiantes {
 	private: 
 		string nombre;
 		string apellido;
-		string dia;
-		string mes;
-		string anio;
-		int nota;
+		int dia;
+		int mes;
+		int anio;
+		float nota;
 	public: 
-		cEstudiantes(string n, string a, string d, string m, string an, int no);
+		cEstudiantes(string n, string a, int d, int m, int an, float no);
 		cEstudiantes();
 		~cEstudiantes();
 		string getNombre();
 		string getApellido();
-		string getDia();
-		string getMes();
-		string getAnio();
-		int getNotas();
+		int getDia();
+		int getMes();
+		int getAnio();
+		float getNotas();
+		bool saberAprobado();
+		bool aproboEn2021();
 };
 
-cEstudiantes::cEstudiantes(string n, string a, string d, string m, string an, int no){
+cEstudiantes::cEstudiantes(string n, string a, int d, int m, int an, float no){
 	nombre = n;
 	apellido = a;
 	dia = d;
@@ -49,17 +51,22 @@ string cEstudiantes::getNombre(){
 string cEstudiantes::getApellido(){
 	return apellido;
 }
-string cEstudiantes::getDia(){
+int cEstudiantes::getDia(){
 	return dia;
 }
-string cEstudiantes::getMes(){
+int cEstudiantes::getMes(){
 	return mes;
 }
-string cEstudiantes::getAnio(){
+int cEstudiantes::getAnio(){
 	return anio;
 }
-int cEstudiantes::getNotas(){
+float cEstudiantes::getNotas(){
 	return nota;
 }
-
+bool cEstudiantes::aproboEn2021(){
+	return(anio==2021) ? true : false;
+}
+bool cEstudiantes::saberAprobado(){
+	return(nota>=7) ? true : false;
+}
 #endif
